@@ -1,6 +1,45 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:task_trecker/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
+
+// import 'package:task_trecker/features/bottom_app_bar/bottom_app_bar.dart';
+// import 'package:task_trecker/features/bottom_app_bar/view/bottom_app_bar.screen.dart';
+
+List<Map<dynamic, dynamic>> listTabs = [
+  {
+    'title': 'Cloud',
+    'icon': Icons.cloud_outlined,
+    'data': [
+      {
+        'title': 'First Item',
+      },
+      {
+        'title': '2nd Item',
+      },
+    ]
+  },
+  {
+    'title': 'Beach',
+    'icon': Icons.beach_access_sharp,
+    'data': [
+      {
+        'title': '1st Item',
+      },
+    ]
+  },
+  {
+    'title': 'Sunny',
+    'icon': Icons.brightness_5_sharp,
+    'data': [
+      {
+        'title': 'First Item',
+      },
+    ]
+  },
+];
+
+final List<Map> notFoundData = [
+  {'title': 'Not found data'}
+];
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -48,13 +87,36 @@ class _HomeScreenState extends State<HomeScreen> {
     //       );
     //     });
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      backgroundColor: theme.primaryColor,
-      body: Container(),
-    );
+    return DefaultTabController(
+        initialIndex: 1,
+        length: listTabs.length,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Home'),
+            bottom: TabBar(
+              tabs: <Widget>[
+                for (var listTab in listTabs)
+                  Tab(
+                    icon: Icon(listTab['icon']),
+                    text: listTab['title'] ?? 'No Title',
+                  )
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: <Widget>[
+              for (var listTab in listTabs)
+                ListView(
+                  children: [
+                    for (var tabDataEl in listTab['data'] ?? notFoundData)
+                      ListTile(
+                        title: Text(tabDataEl['title']),
+                      )
+                  ],
+                ),
+            ],
+          ),
+        ));
   }
 
   void _openPage(int index, TabsRouter tabsRouter) {
