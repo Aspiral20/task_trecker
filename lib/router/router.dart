@@ -5,7 +5,7 @@ import 'router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: MainRoute.page, path: '/', children: [
+        AutoRoute(page: MainLayout.page, path: '/', children: [
           AutoRoute(
             page: HomeRoute.page,
             path: '',
@@ -13,6 +13,10 @@ class AppRouter extends $AppRouter {
           AutoRoute(
             page: SettingsRoute.page,
             path: 'settings',
+          ),
+          AutoRoute(
+            page: CalendarRoute.page,
+            path: 'calendar',
           ),
         ]),
       ];

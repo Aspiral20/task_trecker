@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-
-import 'package:task_trecker/router/router.gr.dart';
+import 'package:task_trecker/features/theme_switcher/theme_switcher.dart';
+import 'package:task_trecker/layouts/app_drawer/app_drawer.dart';
 
 @RoutePage()
 class SettingsScreen extends StatefulWidget {
@@ -15,38 +15,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    // return AutoTabsRouter(
-    //     routes: const [
-    //       HomeRoute(),
-    //       SettingsRoute(),
-    //     ],
-    //     builder: (context, child) {
-    //       return Scaffold(
-    //         appBar: AppBar(
-    //           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-    //           title: Center(child: Text('Settings')),
-    //         ),
-    //         bottomNavigationBar: BottomNavigationBar(
-    //           items: const [
-    //             BottomNavigationBarItem(
-    //               icon: Icon(Icons.home),
-    //               label: "Home",
-    //             ),
-    //             BottomNavigationBarItem(
-    //               icon: Icon(Icons.search),
-    //               label: "Search",
-    //             ),
-    //           ],
-    //         ),
-    //       );
-    //     });
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
       ),
+      drawer: const AppDrawer(),
       backgroundColor: theme.primaryColor,
-      body: Container(),
+      body: const Column(
+        children: [
+          ThemeSwitcherScreen(),
+        ],
+      ),
     );
   }
 }
