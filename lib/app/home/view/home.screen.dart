@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
               tabs: <Widget>[
                 for (var listTab in listTabs)
                   Tab(
-                    icon: Icon(listTab['icon'], color: theme.secondaryHeaderColor),
+                    icon: Icon(listTab['icon']),
                     text: listTab['title'] ?? 'No Title',
                   )
               ],

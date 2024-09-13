@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../router/router.gr.dart';
+import 'package:task_trecker/router/router.gr.dart';
 // import 'package:flutter/foundation.dart';
 
 @RoutePage()
@@ -12,69 +12,36 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-  final bottomNavigationBarItems = [
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: "Home",
-    ),
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.settings),
-      label: "Settings",
-    ),
+  final List<Map<String, dynamic>> bottomNavigationBarItems = [
+    {'icon': Icons.home, 'label': "Home", 'route': const HomeRoute()},
+    {
+      'icon': Icons.account_circle_rounded,
+      'label': "Profile",
+      'route': const ProfileRoute()
+    },
+    {
+      'icon': Icons.calendar_month,
+      'label': "Calendar",
+      'route': const CalendarRoute()
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final bottomNavBarRoutes =
+        bottomNavigationBarItems.map((botNavBarEl) => botNavBarEl['route']);
     return AutoTabsRouter(
-        routes: const [
-          HomeRoute(),
-          SettingsRoute(),
-          CalendarRoute(),
+        routes: [
+          ...bottomNavBarRoutes,
+          const FaqRoute(),
+          const SettingsRoute(),
+          const EditRoute(),
         ],
         builder: (context, child) {
           final tabsRouter = AutoTabsRouter.of(context);
-          debugPrint('$tabsRouter');
           return Scaffold(
-            // appBar: AppBar(
-            // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            // title: Center(child: Text('Home')),
-            // ),
             body: child,
-            // drawer: Drawer(
-            //     key: _drawerKey,
-            //     child: ListView(
-            //       padding: EdgeInsets.zero,
-            //       children: [
-            //         const DrawerHeader(
-            //           decoration: BoxDecoration(
-            //             color: Colors.white,
-            //           ),
-            //           child: Text('Dashboard'),
-            //         ),
-            //         ListTile(
-            //           title: const Text('Home'),
-            //           onTap: () {
-            //             tabsRouter.setActiveIndex(0);
-            //             Navigator.pop(context);
-            //           },
-            //         ),
-            //         ListTile(
-            //           title: const Text('Calendar'),
-            //           onTap: () {
-            //             tabsRouter.setActiveIndex(2);
-            //             Navigator.pop(context);
-            //           },
-            //         ),
-            //         ListTile(
-            //           title: const Text('Settings'),
-            //           onTap: () {
-            //             tabsRouter.setActiveIndex(1);
-            //             Navigator.pop(context);
-            //           },
-            //         ),
-            //       ],
-            //     )),
             bottomNavigationBar: BottomNavigationBar(
               selectedItemColor:
                   tabsRouter.activeIndex >= bottomNavigationBarItems.length
@@ -88,7 +55,13 @@ class _MainLayoutState extends State<MainLayout> {
               onTap: (index) {
                 _openPage(index, tabsRouter);
               },
-              items: bottomNavigationBarItems,
+              items: [
+                for (var bottomNavigationBarItem in bottomNavigationBarItems)
+                  BottomNavigationBarItem(
+                    icon: Icon(bottomNavigationBarItem['icon']),
+                    label: bottomNavigationBarItem['label'],
+                  ),
+              ],
             ),
           );
         });

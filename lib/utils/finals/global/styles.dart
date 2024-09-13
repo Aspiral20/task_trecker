@@ -1,0 +1,1 @@
+const pageDefaultSize = 20.0;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_trecker/providers/app_colors.provider.dart';
+import 'package:task_trecker/utils/finals/global/colors.dart';
 
 class ThemeModel with ChangeNotifier {
   bool _isDark = false;
@@ -18,10 +18,14 @@ class ThemeModel with ChangeNotifier {
           useMaterial3: true,
           tabBarTheme: TabBarTheme(
             labelColor: AppColors['secondaryColor'],
-            dividerColor: AppColors['secondaryColor'],
+            dividerColor: Colors.transparent,
             indicatorColor: AppColors['secondaryColor'],
             unselectedLabelColor: AppColors['unselectedColor'],
-          ));
+          ),
+          elevatedButtonTheme:ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: AppColors['secondaryColor'],
+              )));
 
   void toggleTheme() {
     _isDark = !_isDark;

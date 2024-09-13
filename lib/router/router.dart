@@ -11,12 +11,24 @@ class AppRouter extends $AppRouter {
             path: '',
           ),
           AutoRoute(
-            page: SettingsRoute.page,
-            path: 'settings',
-          ),
-          AutoRoute(
             page: CalendarRoute.page,
             path: 'calendar',
+          ),
+          AutoRoute(
+            page: ProfileRoute.page,
+            path: 'profile',
+          ),
+          AutoRoute(
+            page: EditRoute.page,
+            path: 'profile_edit',
+          ),
+          AutoRoute(
+            page: FaqRoute.page,
+            path: 'faq',
+          ),
+          AutoRoute(
+            page: SettingsRoute.page,
+            path: 'settings',
           ),
         ]),
       ];

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:task_trecker/storage/models/settings.model.dart';
+
+// import 'package:task_trecker/features/icons/theme.icon.dart';
 import 'package:task_trecker/storage/models/theme.model.dart';
 
 // todo update with new features:
@@ -9,36 +11,17 @@ import 'package:task_trecker/storage/models/theme.model.dart';
 class ThemeSwitcherScreen extends StatelessWidget {
   const ThemeSwitcherScreen({super.key});
 
-  settingsActions( ) {
-    return [
-      Consumer<SettingsModel>(
-        builder: (
-            context,
-            settingsModel,
-            child,
-            ) {
-          return Icon(
-            settingsModel.notificationsEnabled
-                ? Icons.notifications
-                : Icons.notifications_off_rounded,
-          );
-        },
-      ),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     final themeModel = Provider.of<ThemeModel>(context);
 
-    return Center(
-      child: SwitchListTile(
-        title: const Text('Theme'),
-        value: themeModel.isDark,
-        onChanged: (value) {
-          themeModel.toggleTheme();
-        },
-      ),
+    return ListTile(
+      title: const Text('Theme'),
+      onTap: () {
+        themeModel.toggleTheme();
+      },
+      trailing: Icon(
+          themeModel.isDark ? LineAwesomeIcons.moon : LineAwesomeIcons.sun),
     );
   }
 }
