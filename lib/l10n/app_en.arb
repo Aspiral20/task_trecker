@@ -1,0 +1,12 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "The current language"
+  },
+  "hello": "Hello, {username}",
+  "routes_home": "Home",
+  "routes_profile": "Profile",
+  "routes_calendar": "Calendar",
+  "routes_faq": "Faq",
+  "routes_settings": "Settings"
+}

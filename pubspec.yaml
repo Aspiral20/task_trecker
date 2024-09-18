@@ -4,6 +4,13 @@ description: "Mobile application for managing tasks"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
+# Scripts used in project
+# Used plugin "Dart Scripts Runner"
+scripts:
+  run: flutter run lib/app/main.dart
+  get_packages: flutter pub get
+  gen_routes: dart run build_runner build
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -28,13 +35,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 
-# Scripts used in project
-# Used plugin "Dart Scripts Runner"
-scripts:
-  run: flutter run lib/app/main.dart
-  get_packages: flutter pub get
-  gen_routes: dart run build_runner build
-
 dependencies:
   flutter:
     sdk: flutter
@@ -51,7 +51,7 @@ dependencies:
   line_awesome_flutter: ^3.0.1
   flutter_localizations:
     sdk: flutter
-  intl: any
+  intl: ^0.19.0
   flutter_local_notifications: ^17.2.2
 
 dev_dependencies:
@@ -72,6 +72,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  # Generate files like generated translations with localization with i18n and flutter localization.
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

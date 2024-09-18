@@ -1,0 +1,12 @@
+{
+  "language": "Romanian",
+  "@language": {
+    "description": "Limba curenta"
+  },
+  "hello": "Buna, {username}",
+  "routes_home": "Acasă",
+  "routes_profile": "Profil",
+  "routes_calendar": "Calendar",
+  "routes_faq": "Faq",
+  "routes_settings": "Setări"
+}

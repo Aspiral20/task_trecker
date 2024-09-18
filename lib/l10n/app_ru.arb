@@ -1,0 +1,12 @@
+{
+  "language": "Russian",
+  "@language": {
+    "description": "Текущий язык"
+  },
+  "hello": "Привет, {username}",
+  "routes_home": "Главная",
+  "routes_profile": "Профиль",
+  "routes_calendar": "Календарь",
+  "routes_faq": "ЧЗВ",
+  "routes_settings": "Настройки"
+}

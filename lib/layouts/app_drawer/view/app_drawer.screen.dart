@@ -4,7 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:task_trecker/features/section_divider/section_divider.dart';
 import 'package:task_trecker/router/router.gr.dart';
-import 'package:task_trecker/storage/models/theme.model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -20,7 +20,8 @@ class _AppDrawerState extends State<AppDrawer> {
   Widget build(BuildContext context) {
     final tabsRouter = AutoTabsRouter.of(context);
     final theme = Theme.of(context);
-
+    final localizations = AppLocalizations.of(context);
+    // todo translate
     return Drawer(
         key: _drawerKey,
         child: ListView(
@@ -33,7 +34,7 @@ class _AppDrawerState extends State<AppDrawer> {
               child: const Text('Dashboard'),
             ),
             ListTile(
-              title: const Text('Home'),
+              title: Text(localizations!.routes_home),
               leading: const Icon(LineAwesomeIcons.home_solid),
               onTap: () {
                 context.navigateTo(HomeRoute());

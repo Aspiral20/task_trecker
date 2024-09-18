@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:task_trecker/features/section_divider/section_divider.dart';
 import 'package:task_trecker/features/theme_switcher/theme_switcher.dart';
 import 'package:task_trecker/layouts/app_drawer/app_drawer.dart';
+import 'package:task_trecker/layouts/language_changer/view/language_changer.screen.dart';
 import 'package:task_trecker/storage/models/settings.model.dart';
 import 'package:task_trecker/storage/models/theme.model.dart';
 
@@ -46,6 +49,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         body: const Column(
           children: [
             ThemeSwitcherScreen(),
+            // SectionDivider(title: 'Date & Time'),
+            // SectionDivider(title: 'Language'),
+            LanguageChangerScreen()
           ],
         ));
   }
