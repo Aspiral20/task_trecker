@@ -6,6 +6,7 @@ import 'package:task_trecker/layouts/app_drawer/app_drawer.dart';
 import 'package:task_trecker/router/router.gr.dart';
 import 'package:task_trecker/utils/finals/global/styles.dart';
 import 'package:task_trecker/utils/finals/images.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
@@ -15,11 +16,12 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final tabsRouter = AutoTabsRouter.of(context);
+    final localizations = AppLocalizations.of(context);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(localizations!.routes_profile),
       ),
       drawer: const AppDrawer(),
       body: SingleChildScrollView(
@@ -77,32 +79,34 @@ class ProfileScreen extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: theme.primaryColor),
-                    child: Text('Edit Profile')),
+                    child: Text(localizations.actions_edit_profile)),
               ),
               ProfileDividerWidget(),
 
               /// Menu
               ProfileMenuWidget(
                 icon: LineAwesomeIcons.user_check_solid,
-                title: 'User Management',
+                title: localizations.user_management,
                 onTap: () {},
               ),
               ProfileMenuWidget(
                 icon: LineAwesomeIcons.wallet_solid,
-                title: 'Billing',
+                title: localizations.billing,
                 onTap: () {},
               ),
               ProfileMenuWidget(
                 icon: LineAwesomeIcons.info_solid,
-                title: 'Information',
+                title: localizations.actions_info,
                 onTap: () {},
               ),
               ProfileDividerWidget(),
               ProfileMenuWidget(
                 icon: LineAwesomeIcons.sign_out_alt_solid,
-                title: 'Logout',
+                title: localizations.actions_logout,
                 onTap: () {},
                 textColor: Colors.deepOrange,
+                disableRightArrow: true,
+                iconColor: Colors.deepOrange,
               ),
             ]),
           ),
@@ -133,6 +137,8 @@ class ProfileMenuWidget extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.textColor = Colors.transparent,
+    this.disableRightArrow = false,
+    this.iconColor = null,
   });
 
   final IconData icon;
@@ -140,6 +146,8 @@ class ProfileMenuWidget extends StatelessWidget {
   final VoidCallback onTap;
 
   final Color textColor;
+  final bool disableRightArrow;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +160,7 @@ class ProfileMenuWidget extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             color: Color.fromARGB(25, 0, 0, 0)),
-        child: Icon(icon),
+        child: Icon(icon, color: iconColor,),
       ),
       title: Text(title,
           style: TextStyle(
@@ -161,20 +169,22 @@ class ProfileMenuWidget extends StatelessWidget {
               color: textColor == Colors.transparent
                   ? theme.textTheme.bodyMedium?.color
                   : textColor)),
-      trailing: Container(
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(90),
-            color: Colors.grey.withOpacity(0.1)),
-        child: const Center(
-          child: Icon(
-            LineAwesomeIcons.angle_right_solid,
-            size: 15,
-            color: Colors.grey,
-          ),
-        ),
-      ),
+      trailing: !disableRightArrow
+          ? Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(90),
+                  color: Colors.grey.withOpacity(0.1)),
+              child: const Center(
+                child: Icon(
+                  LineAwesomeIcons.angle_right_solid,
+                  size: 15,
+                  // color: Colors.grey,
+                ),
+              ),
+            )
+          : null,
     );
   }
 }

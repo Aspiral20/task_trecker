@@ -1,6 +1,6 @@
 {
-  "language": "Russian",
-  "@language": {
+  "locale": "Russian",
+  "@locale": {
     "description": "Текущий язык"
   },
   "hello": "Привет, {username}",
@@ -8,5 +8,14 @@
   "routes_profile": "Профиль",
   "routes_calendar": "Календарь",
   "routes_faq": "ЧЗВ",
-  "routes_settings": "Настройки"
+  "routes_settings": "Настройки",
+  "dashboard": "Панель управления",
+  "actions_info": "Информация",
+  "actions_manage": "Управление",
+  "actions_logout": "Выйти",
+  "actions_edit_profile": "Редактировать профиль",
+  "user_management": "Управление пользователем",
+  "billing": "Биллинг",
+  "theme": "Темы",
+  "language": "Язык"
 }

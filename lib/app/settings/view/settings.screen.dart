@@ -8,6 +8,7 @@ import 'package:task_trecker/layouts/app_drawer/app_drawer.dart';
 import 'package:task_trecker/layouts/language_changer/view/language_changer.screen.dart';
 import 'package:task_trecker/storage/models/settings.model.dart';
 import 'package:task_trecker/storage/models/theme.model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class SettingsScreen extends StatefulWidget {
@@ -38,11 +39,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Settings'),
+          title: Text(localizations!.routes_settings),
         ),
         drawer: const AppDrawer(),
         backgroundColor: theme.primaryColor,

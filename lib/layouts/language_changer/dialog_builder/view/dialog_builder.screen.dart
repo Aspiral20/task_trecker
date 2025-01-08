@@ -33,7 +33,7 @@ class _DialogBuilderWidgetState extends State<DialogBuilderWidget> {
           children: [
             for (var fullLocale in fullLocales)
               RadioListTile<LanguagesEnum>(
-                  title: Text(fullLocale['nameLang'] as String),
+                  title: Text("${fullLocale['nameLang']} (${fullLocale['locale'].toString().toUpperCase()})"),
                   value: fullLocale['langRadioKey'] as LanguagesEnum,
                   groupValue: newLanguage['langRadioKey'] as LanguagesEnum,
                   onChanged: (LanguagesEnum? value) {

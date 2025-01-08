@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:task_trecker/features/section_divider/section_divider.dart';
 import 'package:task_trecker/router/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -18,10 +17,9 @@ class _AppDrawerState extends State<AppDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final tabsRouter = AutoTabsRouter.of(context);
+    // final tabsRouter = AutoTabsRouter.of(context);
     final theme = Theme.of(context);
     final localizations = AppLocalizations.of(context);
-    // todo translate
     return Drawer(
         key: _drawerKey,
         child: ListView(
@@ -31,29 +29,29 @@ class _AppDrawerState extends State<AppDrawer> {
               decoration: BoxDecoration(
                 color: theme.primaryColor,
               ),
-              child: const Text('Dashboard'),
+              child: Text(localizations!.dashboard),
             ),
             ListTile(
-              title: Text(localizations!.routes_home),
+              title: Text(localizations.routes_home),
               leading: const Icon(LineAwesomeIcons.home_solid),
               onTap: () {
-                context.navigateTo(HomeRoute());
+                context.navigateTo(const HomeRoute());
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Profile'),
+              title: Text(localizations.routes_profile),
               leading: const Icon(LineAwesomeIcons.user),
               onTap: () {
-                context.navigateTo(ProfileRoute());
+                context.navigateTo(const ProfileRoute());
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Calendar'),
+              title: Text(localizations.routes_calendar),
               leading: const Icon(LineAwesomeIcons.calendar),
               onTap: () {
-                context.navigateTo(CalendarRoute());
+                context.navigateTo(const CalendarRoute());
                 Navigator.pop(context);
               },
             ),
@@ -68,7 +66,7 @@ class _AppDrawerState extends State<AppDrawer> {
             //     Navigator.pop(context);
             //   },
             // ),
-            SectionDivider(title: 'Info'),
+            SectionDivider(title: localizations.actions_info),
             // ListTile(
             //   title: const Text('About Us'),
             //   leading: const Icon(LineAwesomeIcons.sitemap_solid),
@@ -78,10 +76,10 @@ class _AppDrawerState extends State<AppDrawer> {
             //   },
             // ),
             ListTile(
-              title: const Text('Faq'),
+              title: Text(localizations.routes_faq),
               leading: const Icon(Icons.question_mark),
               onTap: () {
-                context.navigateTo(FaqRoute());
+                context.navigateTo(const FaqRoute());
                 Navigator.pop(context);
               },
             ),
@@ -93,12 +91,12 @@ class _AppDrawerState extends State<AppDrawer> {
             //     Navigator.pop(context);
             //   },
             // ),
-            SectionDivider(title: 'Manage'),
+            SectionDivider(title: localizations.actions_manage),
             ListTile(
-              title: const Text('Settings'),
+              title: Text(localizations.routes_settings),
               leading: const Icon(LineAwesomeIcons.cog_solid),
               onTap: () {
-                context.navigateTo(SettingsRoute());
+                context.navigateTo(const SettingsRoute());
                 Navigator.pop(context);
               },
             ),

@@ -1,6 +1,6 @@
 {
-  "language": "Romanian",
-  "@language": {
+  "locale": "Romanian",
+  "@locale": {
     "description": "Limba curenta"
   },
   "hello": "Buna, {username}",
@@ -8,5 +8,14 @@
   "routes_profile": "Profil",
   "routes_calendar": "Calendar",
   "routes_faq": "Faq",
-  "routes_settings": "Setări"
+  "routes_settings": "Setări",
+  "dashboard": "Tablou de control",
+  "actions_info": "Informare",
+  "actions_manage": "Gestionează",
+  "actions_logout": "Deconectare",
+  "actions_edit_profile": "Editare profil",
+  "user_management": "Gestionare utilizator",
+  "billing": "Facturare",
+  "theme": "Temă",
+  "language": "Limba"
 }

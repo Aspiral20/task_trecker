@@ -1,6 +1,6 @@
 {
-  "language": "English",
-  "@language": {
+  "locale": "English",
+  "@locale": {
     "description": "The current language"
   },
   "hello": "Hello, {username}",
@@ -8,5 +8,14 @@
   "routes_profile": "Profile",
   "routes_calendar": "Calendar",
   "routes_faq": "Faq",
-  "routes_settings": "Settings"
+  "routes_settings": "Settings",
+  "dashboard": "Dashboard",
+  "actions_info": "Information",
+  "actions_manage": "Manage",
+  "actions_logout": "Logout",
+  "actions_edit_profile": "Edit profile",
+  "user_management": "User management",
+  "billing": "Billing",
+  "theme": "Theme",
+  "language": "Language"
 }

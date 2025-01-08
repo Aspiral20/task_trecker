@@ -4,12 +4,23 @@ description: "Mobile application for managing tasks"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# Scripts used in project
-# Used plugin "Dart Scripts Runner"
+# Scripts
+# Used plugin "Dart Scripts Runner" in Android Studio
 scripts:
-  run: flutter run lib/app/main.dart
-  get_packages: flutter pub get
-  gen_routes: dart run build_runner build
+  # Run First Time
+  get: flutter pub get
+  gen-routes: dart run build_runner build
+  run: flutter run
+
+  # Useful Commands
+  run-debug: flutter run --debug
+  doctor: flutter doctor --verbose
+  clean: flutter clean
+  build: flutter build apk
+
+  # Upgrade
+  upgrade: flutter upgrade
+
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
